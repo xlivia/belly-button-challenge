@@ -7,6 +7,7 @@ function readSamplesJSON() {
         createBarChart(data);
         createBubbleChart(data);
         displayMetadata(data);
+        createGaugeChart(data);
     }).catch(function(error) {
         console.log("Error reading samples.json:", error);
     });
@@ -103,6 +104,7 @@ function optionChanged(selectedValue) {
         createBarChart(data, selectedValue);
         createBubbleChart(data, selectedValue);
         displayMetadata(data, selectedValue);
+        updateGaugeChart(selectedValue);
     });
 }
 
