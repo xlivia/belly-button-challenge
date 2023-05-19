@@ -99,10 +99,11 @@ function displayMetadata(data) {
 // Update all the plots and metadata when a new sample is selected
 function optionChanged(selectedValue) {
     console.log("Selected value:", selectedValue);
-    // Call the functions to update the charts and metadata
-    createBarChart(selectedValue);
-    createBubbleChart(selectedValue);
-    displayMetadata(selectedValue);
+    readSamplesJSON().then(data => {
+        createBarChart(data, selectedValue);
+        createBubbleChart(data, selectedValue);
+        displayMetadata(data, selectedValue);
+    });
 }
 
 // Function to initialize the page
