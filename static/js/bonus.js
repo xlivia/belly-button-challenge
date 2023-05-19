@@ -11,14 +11,21 @@ function createGaugeChart(data) {
         type: "indicator",
         mode: "gauge+number",
         value: washingFreq,
-        title: { text: "Belly Button Washing Frequency", font: { size: 24 } },
+        title: { text: "<b>Belly Button Washing Frequency</b><br>Scrubs per Week", font: { size: 24 } },
         gauge: {
             axis: { range: [0, 9] },
             bar: { color: "#1f77b4" },
             steps: [{
                 range: [0, 9],
-                color: "#ebedf0"
-            }]
+                color: "#ebedf0",
+                axis: { range: [0, 9] },
+                bar: { color: "#6baed6" }, // Choose a color that matches the rest of the plots
+                steps: [
+                    { range: [0, 3], color: "#ebedf0" },
+                    { range: [3, 6], color: "#c6dbef" },
+                    { range: [6, 9], color: "#9ecae1" }
+                ]
+            }],
         }
     };
 
